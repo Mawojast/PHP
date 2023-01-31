@@ -3,7 +3,11 @@ require_once(__DIR__."/class.ShopArticle.php");
 
 class ShopArticlePrinter {
 
-    public function print(ShopArticle $shopArticle) {
+    public function print($shopArticle): void {
+
+        if ( !($shopArticle instanceof CdArticle) && !($shopArticle instanceof BookArticle) ) {
+            die("no correct types")
+        }
 
         $str = $shopArticle->title.": "
             .$shopArticle->getProducerName()
