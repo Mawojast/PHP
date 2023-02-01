@@ -3,20 +3,23 @@ require_once(__DIR__."/class.ShopArticle.php");
 
 class ShopArticlePrinter {
 
-    public function print($shopArticle): void {
+    private $articles = [];
 
-        if ( !($shopArticle instanceof CdArticle) && !($shopArticle instanceof BookArticle) ) {
-            die("no correct types")
+    public function addArticle(ShopProduct $shopProduct): void {
+
+        $this->articles[] = $article;
+    }
+
+    public function print(): void {
+
+        $str = "";
+        foreach ($this->articles as $shopArticle) {
+            $str .= "{$shopArticle->title}: ";
+            $str .= $shopArticle->getProducerName();
+            $str .= " ({$shopArticle->getPrice()})\n";
         }
 
-        $str = $shopArticle->title.": "
-            .$shopArticle->getProducerName()
-            ." (".$shopArticle->price.")\n";
         echo $str;
     }
 }
-
-$article1 = new ShopArticle("Mosona", "Johan", "Toast", 8.00);
-$printer = new ShopArticlePrinter();
-$printer->print($article1);
 ?>

@@ -1,13 +1,18 @@
 <?php
+require_once(__DIR__."/class.ShopArticle.php");
 class BookArticle extends ShopArticle {
 
     public function __construct (
-        public string $title,
-        public string $firstName,
-        public string $lastName,
-        public float $price,
-        public int $numOfPages
-    ) {}
+        string $title,
+        string $firstName,
+        string $lastName,
+        float $price,
+        private int $numOfPages
+    ) {
+        parent::__construct($title, $firstname, $lastname, $price);
+
+        $this->numPages = $numPages;
+    }
 
     public function getNumberOfPages(): int {
 
@@ -16,15 +21,10 @@ class BookArticle extends ShopArticle {
 
     public function getInfo(): string {
 
-        $info = "{$this->title} - {$this->lastName}, {$this->firstName}";
+        $info = parent::getInfo();
         $info .= ": number of pages - {$this->numOfPages}";
 
         return $info;
-    }
-
-    public function getProducerName(): string {
-
-        return $this->firstName." ".$this->lastName;
     }
 }
 ?>
