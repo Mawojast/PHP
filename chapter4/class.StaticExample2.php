@@ -11,5 +11,5 @@ class StaticExample2 {
 }
 
 
-StaticExample2::sayHello();
+//StaticExample2::sayHello();
 ?>

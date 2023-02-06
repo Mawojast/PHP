@@ -1,17 +1,36 @@
 <?php
-class ShopArticle {
+//include(__DIR__."/class.BookArticle.php");
+//require_once(__DIR__."/class.CdArticle.php");
+require_once(__DIR__."/interface.Chargeable.php");
+require_once(__DIR__."/interface.IdentityObject.php");
+require_once(__DIR__."/trait.PriceUtilities.php");
+require_once(__DIR__."/trait.IdentityTrait.php");
+class ShopArticle implements Chargeable, IdentityObject  {
+
+    use PriceUtilities;
+    use IdentityTrait;
+
+    public const AVAILABLE = 0;
+    public const OUT_OF_STOCK = 1;
 
     private int|float $discount = 0;
     private int $id = 0;
+
+    //protected float $price;
 
     public function __construct(
         private string $title, 
         private string $firstName = "", 
         private string $lastName = "", 
-        protected int|float $price = 0.00
+        protected float $price = 0.00
         ){}
 
-    public static function getInstance(int $id, $mysqli): ArticleProduct {
+    public function calculateTax(float $price): float {
+
+        return (($this->taxrate / 100) * $price);
+    }
+
+    public static function getInstance(int $id, $mysqli) {
         if ($mysqli->connect_errno) {
             exit('nope mysqli connection');
         }
@@ -19,14 +38,11 @@ class ShopArticle {
 
         $stmt->prepare("select * from articles where id=?");
         $stmt->bind_param("i", $id);
-        $result = $stmt->execute();
-        var_dump($result);
-        $row = $result->fetch();
+        $stmt->execute();
+        
 
-        var_dump($row);
-        if ( empty($row)) {
-            return null;
-        }
+        $result = $stmt->get_result();
+        $row = $result->fetch_array();
 
         if ( $row['type'] == "book" ) {
             $article = new BookArticle(
@@ -87,9 +103,9 @@ class ShopArticle {
         return $this->playLength;
     }
 
-    public function getPrice(): int|float {
+    public function getPrice(): float {
 
-        return ($this->price - $this->discount);
+        return $this->price;
     }
 
     public function setDiscount(float|int $num): void {
@@ -109,9 +125,12 @@ class ShopArticle {
 
         return $info;
     }
+
+    public static function storeIdentityObject(IdentityObject $identityObject) {}
 }
 
-$mysqli = new mysqli('localhost', 'root', '', 'php8objectspatternsandpractice');
-//$obj = 
-ShopArticle::getInstance(1, $mysqli);
+//$mysqli = new mysqli('localhost', 'root', '', 'php8objectspatternsandpractice');
+
+
+//echo ShopArticle::AVAILABLE;
 ?>
