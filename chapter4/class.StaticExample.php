@@ -8,6 +8,6 @@ class StaticExample {
     }
 }
 
-echo StaticExample::$aNum;
-StaticExample::sayHello();
+//echo StaticExample::$aNum;
+//StaticExample::sayHello();
 ?>

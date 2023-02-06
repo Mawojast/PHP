@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__."/class.ShopArticle.php");
+
 class BookArticle extends ShopArticle {
 
     public function __construct (
@@ -9,9 +9,9 @@ class BookArticle extends ShopArticle {
         float $price,
         private int $numOfPages
     ) {
-        parent::__construct($title, $firstname, $lastname, $price);
+        parent::__construct($title, $firstName, $lastName, $price);
 
-        $this->numPages = $numPages;
+        $this->numOfPages = $numOfPages;
     }
 
     public function getNumberOfPages(): int {
