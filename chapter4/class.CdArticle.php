@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__."/class.ShopArticle.php");
+
 class CdArticle extends ShopArticle{
 
     public function __construct (

@@ -1,10 +1,4 @@
 <?php
-//include(__DIR__."/class.BookArticle.php");
-//require_once(__DIR__."/class.CdArticle.php");
-require_once(__DIR__."/interface.Chargeable.php");
-require_once(__DIR__."/interface.IdentityObject.php");
-require_once(__DIR__."/trait.PriceUtilities.php");
-require_once(__DIR__."/trait.IdentityTrait.php");
 class ShopArticle implements Chargeable, IdentityObject  {
 
     use PriceUtilities;
@@ -25,9 +19,9 @@ class ShopArticle implements Chargeable, IdentityObject  {
         protected float $price = 0.00
         ){}
 
-    public function calculateTax(float $price): float {
-
-        return (($this->taxrate / 100) * $price);
+    public function getTaxRate(): float {
+    
+        return 20;
     }
 
     public static function getInstance(int $id, $mysqli) {
