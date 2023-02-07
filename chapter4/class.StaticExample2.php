@@ -9,7 +9,4 @@ class StaticExample2 {
         echo "Hello - ".self::$aNum."\n";
     }
 }
-
-
-//StaticExample2::sayHello();
 ?>

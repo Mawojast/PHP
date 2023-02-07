@@ -5,7 +5,7 @@ class ConfReader {
 
         $values = [];
         $values = array_merge($default, $values);
-        return $values
+        return $values;
     }
 }
 ?>

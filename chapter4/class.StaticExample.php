@@ -7,7 +7,4 @@ class StaticExample {
         echo "Hello";
     }
 }
-
-//echo StaticExample::$aNum;
-//StaticExample::sayHello();
 ?>

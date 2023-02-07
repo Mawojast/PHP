@@ -1,5 +1,4 @@
 <?php
-require_once(__DIR__."/abstract.ShopArticlePrinter.php");
 class XmlArticlePrinter extends ShopArticlePrinter {
 
     public function print(): void {

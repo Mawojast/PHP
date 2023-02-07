@@ -15,7 +15,7 @@ class Point {
         return $this->x;
     }
 
-    public function getY(); int {
+    public function getY(): int {
 
         return $this->y;
     }
