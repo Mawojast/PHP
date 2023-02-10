@@ -29,5 +29,6 @@ require_once(__DIR__."/class.XmlArticlePrinter.php");
 require_once(__DIR__."/class.Runner.php");
 require_once(__DIR__ . "/class.PersonPrinter.php");
 require_once(__DIR__ . "/class.Person1.php");
+require_once(__DIR__ . "/class.Account.php");
 require_once(__DIR__ . "/class.Person.php");
 ?>
