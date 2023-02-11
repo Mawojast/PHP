@@ -1,4 +1,5 @@
 <?php
+
 class PersonPrinter {
 
     public function printName( Person $person ): void {
