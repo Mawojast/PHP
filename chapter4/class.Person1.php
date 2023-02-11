@@ -47,6 +47,11 @@ class Person1 {
         }
     }
 
+    public function __toString(): string {
+
+        return "{$this->getName()}: {$this->getAge()}";
+    }
+
     public function getName(): string {
 
         return 'Fawn';

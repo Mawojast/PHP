@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__."/interface/interface.Chargeable.php");
 require_once(__DIR__."/interface/interface.IdentityObject.php");
+require_once(__DIR__ . "/interface/interface.PersonPrinter.php");
 
 require_once(__DIR__."/abstract/abstract.ShopArticlePrinter.php");
 require_once(__DIR__."/abstract/abstract.Service.php");
@@ -27,7 +28,13 @@ require_once(__DIR__."/class.TextArticlePrinter.php");
 require_once(__DIR__."/class.UtilityService.php");
 require_once(__DIR__."/class.XmlArticlePrinter.php");
 require_once(__DIR__."/class.Runner.php");
-require_once(__DIR__ . "/class.PersonPrinter.php");
 require_once(__DIR__ . "/class.Person1.php");
+require_once(__DIR__ . "/class.Person2.php");
+require_once(__DIR__ . "/class.Account.php");
 require_once(__DIR__ . "/class.Person.php");
+require_once(__DIR__ . "/class.Article.php");
+require_once(__DIR__ . "/class.ProcessSale.php");
+require_once(__DIR__ . "/class.Mailer.php");
+require_once(__DIR__ . "/class.Totalizer.php");
+require_once(__DIR__ . "/class.Totalizer2.php");
 ?>
