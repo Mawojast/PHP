@@ -1,23 +1,22 @@
 <?php
-namespace main;
-include(__DIR__."/popp/chapter05/batch04/util/class.Debug.php");
-include(__DIR__."/popp/chapter05/batch04/util/class.TreeLister.php");
+$basePath = __DIR__;
+$classname = "task";
+$classPath = "{$basePath}/tasks/{$classname}.php";
+if ( !file_exists($classPath) ) {
+    throw new Exception("ClassPath not found: {$classPath}\n");
+} 
+require_once($classPath);
 
-include(__DIR__."/popp/class.TreeLister.php");
-include(__DIR__."/popp/chapter05/batch04/class.Debug.php");
+$pathWithClassname = "tasks\\$classname";
+if ( !class_exists($pathWithClassname) ) {
+    throw new Exception("No path found: {$pathWithClassname}\n");
+}
+$Task = new $pathWithClassname();
+$Task->doSpeak();
 
-use popp\chapter5\batch04\util\Debug;
-use popp\chapter5\batch04\util\TreeLister;
-use popp\chapter5\batch04\Debug as CoreDebug;
+require_once(__DIR__."/article.php");
+use articles\Article;
 
-
-Debug::helloWorld();
-CoreDebug::helloWorld();
-TreeLister::helloWorld();
-
-namespace popp\chapter5\batch04;
-
-use popp\chapter5\batch04\util\TreeLister;
-echo "-----New Namespce---------\n";
-TreeLister::helloWorld();
-\TreeLister::helloWorld();
+$article = new Article();
+$article->getClass();
+var_dump($article);

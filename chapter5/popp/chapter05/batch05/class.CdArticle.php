@@ -1,5 +1,5 @@
 <?php
-
+namespace popp\chapter5\batch05;
 class CdArticle extends ShopArticle{
 
     public function __construct (
