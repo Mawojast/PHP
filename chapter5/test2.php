@@ -1,29 +1,22 @@
 <?php
-
-$basic = function( string $class ) {
-    $classFile = __DIR__."/{$class}.php";
-
-    if( file_exists($classFile) ){
-        require_once($classFile);
-    }
-};
-$undescoredDirectoryClass = function( string $class ) {
-    $path = str_replace('_', DIRECTORY_SEPARATOR, $class);
-    $path = __DIR__."/$path";
-
-    if( file_exists("{$path}.php") ){
-        require_once("{$path}.php");
-    }
-};
-spl_autoload_register($basic);
-spl_autoload_register($undescoredDirectoryClass);
+spl_autoload_register();
 $w = new Water();
 $w->wave();
 
 $uw = new Util_Water();
 $uw->wave();
-$a = new CdArticle('title', 'firstname', 'lastname', '9.99', '55');
+$cd = new CdArticle('title', 'firstname', 'lastname', '9.99', '55');
 $prodclass = new ReflectionClass(CdArticle::class);
-var_dump( $prodclass);
+$methods = $prodclass->getMethods();
+$method = $prodclass->getMethod("setId");
+print_r($method->getParameters() );
+//echo ReflectionUtil::getMethodSource($method);
+//var_dump(get_class_methods($prodclass));
+//echo ClassInfo::getData($prodclass);
+//echo ReflectionUtil::getClassSource($prodclass);
+$classname = CdArticle::class;
 
-?>
+$rmethod1 = new ReflectionMethod("{$classname}::__construct");
+$rmethod2 = new ReflectionMethod($classname, "__construct");
+$rmethod3 = new ReflectionMethod($cd, "__construct");
+//echo $rmethod3;
