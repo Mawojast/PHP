@@ -22,4 +22,8 @@ $w->wave();
 
 $uw = new Util_Water();
 $uw->wave();
+$a = new CdArticle('title', 'firstname', 'lastname', '9.99', '55');
+$prodclass = new ReflectionClass(CdArticle::class);
+var_dump( $prodclass);
+
 ?>
