@@ -20,3 +20,10 @@ $rmethod1 = new ReflectionMethod("{$classname}::__construct");
 $rmethod2 = new ReflectionMethod($classname, "__construct");
 $rmethod3 = new ReflectionMethod($cd, "__construct");
 //echo $rmethod3;
+require_once(__DIR__."/person.php");
+//attributes
+//use popp\ch05\batch09\Person;
+
+$rpers = new ReflectionClass(obj\Person::class);
+$attrs = $rpers->getAttributes();
+print_r($attrs);
