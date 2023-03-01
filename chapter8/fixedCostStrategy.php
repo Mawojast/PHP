@@ -1,5 +1,5 @@
 <?php
-class FixedCostStrategy extends Coststrategy {
+class FixedCostStrategy extends CostStrategy {
 
     public function cost(Lesson $lesson): int {
 
