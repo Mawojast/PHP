@@ -6,5 +6,5 @@ $lessonB = new Seminar(4, new FixedCostStrategy);
 
 $mgr = new RegistrationMgr();
 
-
+$mgr->register($lessonA);
 ?>
