@@ -1,5 +1,5 @@
 <?php
-class BloggsApptEncoder implements Encoder {
+class MegasTtdEncoder implements Encoder {
 
     public function encode(): string {
 

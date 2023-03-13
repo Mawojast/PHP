@@ -1,10 +1,12 @@
 <?php
 abstract class CommsManager {
 
-    abstract public function getFooter(): string;
+    public const APPT = 1;
+    public const TTD = 2;
+    public const CONTACT = 3;
 
-    abstract public function getApptEncoder(): ApptEncoder;
-
-    abstract public function getHeader(): string;
+    abstract public function getFooterText(): string;
+    abstract public function make(int $flag_int): Encoder;
+    abstract public function getHeaderText(): string;
 }
 ?>
