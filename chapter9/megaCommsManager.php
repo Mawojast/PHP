@@ -1,26 +1,26 @@
 <?php
-class BloggsCommsManager extends CommsManager {
+class MegaCommsManager extends CommsManager {
 
     public function getHeaderText(): string {
-        return "BloggsHeader\n";
+        return "MegasHeader\n";
     }
 
     public function make(int $flag_int): Encoder {
 
         switch ($flag_int) {
             case self::APPT:
-                return new BloggsApptEncoder();
+                return new MegasApptEncoder();
             case self::CONTACT:
-                return new BloggsContactEncoder();
+                return new MegasContactEncoder();
             case self::TTD:
-                return new BloggsTtdEncoder();
+                return new MegasTtdEncoder();
             default:
-                return new BloggsApptEncoder();
+                return new MegasApptEncoder();
         }
     }
+
     public function getFooterText(): string {
 
         return "BloggsFooter\n";
     }
 }
-?> 
