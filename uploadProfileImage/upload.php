@@ -79,7 +79,9 @@ if(array_key_exists("profile_image", $_FILES) && $_SERVER['REQUEST_METHOD'] === 
                 throw new Exception('jpeg file invalid');
             }
 
+            // Resizes uploaded image
             if($resizedImage = resizeImage($_FILES['profile_image']['tmp_name'], $fileType, 70, 70)){
+                // Compress and generate jpeg image file and saves to upload folder
                 imagejpeg($resizedImage, UPLOAD_FOLDER_PATH.'/'.$profileImageName, COMPRESSED_IMAGE_QUALITY);
             }else{
                 throw new Exception("Could not create profile image");
@@ -91,7 +93,9 @@ if(array_key_exists("profile_image", $_FILES) && $_SERVER['REQUEST_METHOD'] === 
                 throw new Exception('png file invalid');
             }
 
+            // Resizes uploaded image
             if($resizedImage = resizeImage($_FILES['profile_image']['tmp_name'], $fileType, 70, 70)){
+                // Compress and generate jpeg image file and saves to upload folder
                 imagejpeg($resizedImage, UPLOAD_FOLDER_PATH.'/'.$profileImageName, COMPRESSED_IMAGE_QUALITY);
             }else{
                 throw new Exception("Could not create profile image");
@@ -103,7 +107,9 @@ if(array_key_exists("profile_image", $_FILES) && $_SERVER['REQUEST_METHOD'] === 
                 throw new Exception('gif file invalid');
             }
 
+            // Resizes uploaded image
             if($resizedImage = resizeImage($_FILES['profile_image']['tmp_name'], $fileType, 70, 70)){
+                // Compress and generate jpeg image file and saves to upload folder
                 imagejpeg($resizedImage, UPLOAD_FOLDER_PATH.'/'.$profileImageName, COMPRESSED_IMAGE_QUALITY);
             }else{
                 throw new Exception("Could not create profile image");
@@ -123,6 +129,7 @@ if(array_key_exists("profile_image", $_FILES) && $_SERVER['REQUEST_METHOD'] === 
 }
 elseif(array_key_exists("delete_profile_image", $_POST) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 
+    // deletes current profile image if exists
     if($imageName = getProfileImageNameByUserId(UPLOAD_FOLDER_PATH, $user['id'])){
         unlink(UPLOAD_FOLDER_PATH.'/'.$imageName);
         $user['image_name'] = '';

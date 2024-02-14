@@ -26,6 +26,8 @@ $_SESSION['csrf_token_expire'] = $csrfTokenExpire;
 <body>
     <div class="container">
         <?php
+
+        // Outputs form errors
         if(isset($_SESSION["form_error"]) && is_array($_SESSION["form_error"])){
             foreach($_SESSION["form_error"] as $error){
                 echo "<p style='color: red'>".$error."</p>";
