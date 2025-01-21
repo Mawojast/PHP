@@ -31,9 +31,9 @@ class InputValidation{
         return $result;
     }
 
-    public function trimAndRemoveDoubleWhitespaces(string $text): string{
+    public function trimAndRemoveSeveralWhitespaces(string $text): string{
 
-        return trim(preg_replace('/\s{2,}/', ' ', $text));
+        return trim(preg_replace('/\s+/', ' ', $text));
     }
 
     public function maxLength(string $text, int $length): array{
@@ -82,7 +82,7 @@ array(5) {
 }
 */
 
-var_dump($input->trimAndRemoveDoubleWhitespaces('   Hello  World! '));
+var_dump($input->trimAndRemoveSeveralWhitespaces('   Hello  World! '));
 //string(11) "Hello World"
 
 var_dump($input->maxLength('The maximum length was exceeded', 31));
